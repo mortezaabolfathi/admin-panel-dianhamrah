@@ -1,3 +1,5 @@
-export const Components = {
-    
+
+
+export const components = {
+   
 }

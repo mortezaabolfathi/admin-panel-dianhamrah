@@ -1,9 +1,22 @@
-import React from 'react'
+import Header from './Header'
+import Sidebar  from './SideBar'
+import { useRoutes} from "react-router-dom";
+import { panelRoute } from '../Routes'
 
-const LayoutAdminPanel = () => {
+const Layout = () => {
+  const routerPanel = useRoutes(panelRoute)
+
+
   return (
-    <div>LayoutAdminPanel</div>
+    <>
+   <div className='flex flex-col gap-10'>
+        <Header/>
+        <Sidebar/>
+        {routerPanel}
+    </div>
+    </>
   )
 }
 
-export default LayoutAdminPanel
+export default Layout
+
