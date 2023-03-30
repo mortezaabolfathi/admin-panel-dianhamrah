@@ -1,5 +1,5 @@
 // import SignIn from "../pages/SingIn";
-import AddUser from "../pages/PanelAdmin/Adduser";
+import AddUser from "../pages/PanelAdmin/AddUser";
 import ManageUser from "../pages/PanelAdmin/ManageUser";
 import AddCertification from "../pages/PanelAdmin/AddCertification";
 import SupporterUser from "../pages/PanelAdmin/SupporterUser";

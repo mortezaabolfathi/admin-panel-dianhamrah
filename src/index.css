@@ -13,8 +13,12 @@ body {
     font-family: IranSans;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+  padding: 2rem;
 }
-
+*{
+  font-family: IranSans !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,7 +1,8 @@
+import { Button } from "@material-tailwind/react";
 
 const HomePanelAdmin = () => {
   return (
-    <div>HomePanelAdmin</div>
+    <Button>HomePanelAdmin</Button>
   )
 }
 
