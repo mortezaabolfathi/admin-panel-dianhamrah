@@ -1,10 +1,8 @@
-import React from 'react'
-
+import Side from "./Side"
 const Sidebar = () => {
   return (
-    <div>
-      This is Sidebar
-
+    <div className="h-screen">
+      <Side/>
     </div>
   )
 }
