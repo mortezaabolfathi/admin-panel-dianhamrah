@@ -9,9 +9,13 @@ import SignIn from "../pages/SingIn";
 // export const SingInRout = [{ path: "/SignIn", element: <SignIn /> }];
 
 export const panelRoute = [
-  { path: "/", element: <HomePanelAdmin /> },
+  { path: "/DashboardHome", element: <HomePanelAdmin /> },
   { path: "/addUser", element: <AddUser /> },
   { path: "/manageUser", element: <ManageUser /> },
   { path: "/addCertification", element: <AddCertification /> },
   { path: "/supporterUser", element: <SupporterUser /> },
 ];
+
+export const singInPage =[
+  {path:"/SignIn", element:<SignIn/>} 
+]
