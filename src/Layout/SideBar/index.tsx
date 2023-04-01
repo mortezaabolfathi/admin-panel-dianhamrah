@@ -1,10 +1,6 @@
 import Side from "./Side"
 const Sidebar = () => {
-  return (
-    <div>
-      <Side/>
-    </div>
-  )
+  return (<Side/>)
 }
 
 export default Sidebar

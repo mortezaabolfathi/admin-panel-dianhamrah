@@ -8,12 +8,12 @@ const Layout = () => {
   
 
   return (
-    <div className="flex flex-row-reverse" >
+    <div className="flex flex-row-reverse h-full" >
       <div className="flex flex-col gap-4 w-4/5 p-2">
         <Header />
         {routerPanel}
       </div>
-      <div className="w-1/5 h-full sticky top-0 p-2" >
+      <div className="w-1/5 h-full  sticky top-0 p-2" >
         <Sidebar />
       </div>
       

@@ -12,7 +12,7 @@ export default function Example() {
             <Button
               variant="gradient"
               // variant="text"
-              className="w-full text-xl flex items-center gap-4 text-white"
+              className="w-full	 flex items-center gap-4 text-white"
             >
               {itemBtn.icon}
               {itemBtn.text}

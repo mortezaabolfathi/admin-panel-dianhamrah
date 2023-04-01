@@ -14,9 +14,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: rtl;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }
 *{
   font-family: IranSans !important;
+}
+#root{
+  height: 100%;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
