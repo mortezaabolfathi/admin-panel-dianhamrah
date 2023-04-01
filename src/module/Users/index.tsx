@@ -7,6 +7,7 @@ import { toFarsiNumber } from "../../utils";
 import { useState } from "react";
 import { Avatar, Tooltip } from "@material-tailwind/react";
 import DeleteModal from "../components/ModalDelete";
+import EditModal from "../components/ModalEditUser";
 
 
 function ManageUser() {
@@ -49,9 +50,7 @@ function ManageUser() {
             <div
               className="cursor-pointer text-2xl  hover:text-blue-500"
               onClick={() => {
-                ModalHandler();
-                console.log("delete");
-                
+                ModalDelete();
               }}
             >
               {row.deleteUSer}
@@ -60,8 +59,8 @@ function ManageUser() {
           <Tooltip content="ویرایش">
             <div
               className="cursor-pointer text-2xl  hover:text-blue-500"
-              onClick={(e) => {
-                console.log("certificatied");
+              onClick={() => {
+                ModalEdit();
               }}
             >
               {row.editUser}
@@ -85,12 +84,35 @@ function ManageUser() {
       deleteUSer: <MdOutlineDeleteForever />,
       editUser: <MdEdit />,
     },
+    {
+      id: 1,
+      img: <Avatar src="" alt="avatar" />,
+      title: "مرتضی ابوالفتحی",
+      phoneNumber: "09359919333",
+      personalId: "4120422771",
+      certificationStory: <TbCertificate />,
+      deleteUSer: <MdOutlineDeleteForever />,
+      editUser: <MdEdit />,
+    },
+    {
+      id: 1,
+      img: <Avatar src="" alt="avatar" />,
+      title: "مرتضی ابوالفتحی",
+      phoneNumber: "09359919333",
+      personalId: "4120422771",
+      certificationStory: <TbCertificate />,
+      deleteUSer: <MdOutlineDeleteForever />,
+      editUser: <MdEdit />,
+    },
   ];
   
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
-  const ModalHandler = () => {
+  const [openEditModal, setOpenEditModal] = useState<boolean>(false);
+  const ModalDelete = () => {
     setOpenDeleteModal(!openDeleteModal);
-    console.log(openDeleteModal);
+  };
+  const ModalEdit = () => {
+    setOpenEditModal(!openEditModal);
   };
   return (
     <div>
@@ -101,7 +123,8 @@ function ManageUser() {
         data={data}
         pagination
       />
-      {openDeleteModal? <DeleteModal open={openDeleteModal} handleOpen={ModalHandler}/> : ("")}
+      {openDeleteModal? <DeleteModal open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
+      {openEditModal? <EditModal open={openEditModal} handleOpen={ModalEdit}/> : ("")}
     </div>
   );
 }
