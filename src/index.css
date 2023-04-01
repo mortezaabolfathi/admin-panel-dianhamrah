@@ -5,7 +5,7 @@
 @font-face {
   font-family: "IranSans";   /*Can be any text*/
   src: local("AirbnbCerealLight"),
-    url("./assets/fonts/Iranian\ Sans.ttf") format("truetype");
+    url("./assets/fonts/Iranian\ Sans.ttf");
 }
 
 body {
