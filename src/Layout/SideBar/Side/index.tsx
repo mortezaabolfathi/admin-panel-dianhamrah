@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+
 import { Navbar, Typography, Button } from "@material-tailwind/react";
 import { RxDashboard } from "react-icons/rx";
-import { btnItemPanel } from "../../../dummy";
+import { btnItemPanel } from "./../../../dummy"
 import { Link } from "react-router-dom";
 export default function Example() {
   const navList = (
