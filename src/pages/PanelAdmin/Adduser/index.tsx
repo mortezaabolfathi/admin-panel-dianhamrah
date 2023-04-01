@@ -1,9 +1,11 @@
-import React from 'react'
+import AddUser from '../../../module/pages/AddUser'
 
-const AddUser = () => {
+const AddUserPage = () => {
   return (
-    <div>AddUser</div>
+    <div className='h-full flex justify-center items-center'>
+      <AddUser/>
+    </div>
   )
 }
 
-export default AddUser
+export default AddUserPage
