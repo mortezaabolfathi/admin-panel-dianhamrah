@@ -1,14 +1,9 @@
 import DataTable from "react-data-table-component";
 import { customStyles } from "./customStyleTable";
 import { Direction } from "react-data-table-component";
-import React,{useEffect, useState} from "react"
-import { MdOutlineManageAccounts} from "react-icons/md"
+import { MdEdit, MdOutlineDeleteForever} from "react-icons/md"
+import {TbCertificate} from "react-icons/tb"
 
-type DataTable = {
-    id:number,
-    title:string,
-    year: string | number
-}
 
 const columns = [
   {
@@ -24,9 +19,13 @@ const columns = [
     selector: (row: any) => row.certificationStory,
   },
   {
-    name: "مدیریت کاربر",
-    selector: (row: any) => row.manageUser,
+    name: "حذف کاربر",
+    selector: (row: any) => row.deleteUSer,
   },
+  {
+    name: "ویرایش کاربر",
+    selector: (row: any) => row.editUser,
+  }
 ];
 
 const data = [
@@ -34,8 +33,9 @@ const data = [
     id: 1,
     title: "مرتضی ابوالفتحی",
     phoneNumber: "09359919333",
-    certificationStory : "بارگذاری/عدم بارگذاری",
-    manageUser: <MdOutlineManageAccounts/>
+    certificationStory : <TbCertificate/>,
+    deleteUSer: <MdOutlineDeleteForever/>,
+    editUser: <MdEdit/>
   }
 
 ];
