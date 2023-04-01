@@ -1,31 +1,3 @@
-// export const customStyles = {
-//   headRow:{
-//     style : {
-//       border: 'none',
-//     }
-//   },
-//   headCells : {
-//     style : {
-//       color: '#2021124',
-//       fontSize : '14px',
-//       fontWeight: "bold",
-//       backgroundColor: 'rgb(54,170,240)',
-//     },
-//     rows : {
-//       highlightOnHoverStyle : {
-//         backgroundColor: 'rgb(30, 24, 244)',
-//         borderBottomColor:"#ff2fff",
-//         borderRadius:"25px",
-//         outline: '1px solid #FFFFFF',
-//       },
-//       pagination: {
-//         style: {
-//         		border: 'none',
-//         	},
-//     	},
-//     }
-//   }
-// }
 export const customStyles = (
   singleCol="",
   lgUp="",
@@ -57,14 +29,16 @@ export const customStyles = (
         },
       },
     },
-
     headRow: {
       style: {
         display: hiddenHeader && !lgUp && "none",
         borderBottomWidth: "0",
-        marginBottom: "16px",
-        backgroundColor: lgUp ? "white" : "transparent",
-        color: lgUp ? "#A6A6A6" : "#000",
+        fontSize:"14px",
+        fontWeight:"bold",
+        backgroundColor:"#6EBAF5",
+        borderRadius:"10px 10px 0px 0px"
+        // backgroundColor: lgUp ? "white" : "transparent",
+        // color: lgUp ? "#A5A6A6" : "#000",
       },
     },
     headCells: {

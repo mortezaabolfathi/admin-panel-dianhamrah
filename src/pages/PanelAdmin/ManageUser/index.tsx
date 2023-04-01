@@ -1,4 +1,4 @@
-import ManageUser from '../../../module/pages/Users'
+import ManageUser from "../../../module/Users"
 
 const AllUser = () => {
   return (

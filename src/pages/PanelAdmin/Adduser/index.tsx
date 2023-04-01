@@ -1,4 +1,4 @@
-import AddUser from '../../../module/pages/AddUser'
+import AddUser from '../../../module/AddUser'
 
 const AddUserPage = () => {
   return (
