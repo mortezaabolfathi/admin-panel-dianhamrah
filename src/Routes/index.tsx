@@ -8,8 +8,6 @@ import Blog from "../pages/PanelAdmin/Blog";
 import LibraryAndLow from "../pages/PanelAdmin/LibraryLaw";
 import Courses from "../pages/PanelAdmin/Courses";
 
-// singIn Page
-import SignIn from "../pages/SingIn";
 
 // export const SingInRout = [{ path: "/SignIn", element: <SignIn /> }];
 
@@ -24,6 +22,3 @@ export const panelRoute = [
   { path: "/courses", element: <Courses/> },
 ];
 
-export const singInPage =[
-  {path:"/SignIn", element:<SignIn/>} 
-]
