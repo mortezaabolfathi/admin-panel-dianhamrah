@@ -6,8 +6,8 @@ import { TbCertificate } from "react-icons/tb";
 import { toFarsiNumber } from "../../utils";
 import { useState } from "react";
 import { Avatar, Tooltip } from "@material-tailwind/react";
-import DeleteModal from "../components/ModalDelete";
-import EditModal from "../components/ModalEditUser";
+import DeleteModal from "../../common/components/ModalDelete";
+import EditModal from "../../common/components/ModalEditUser";
 
 
 function ManageUser() {

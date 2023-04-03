@@ -13,6 +13,7 @@ import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 const AddUser = () => {
+  console.log(process.env.BASE_URL);
   return (
       <Card className="w-5/6  flex flex-row">
         <CardHeader

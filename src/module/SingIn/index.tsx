@@ -8,13 +8,13 @@ import {
     Button,
     Dialog,
   } from "@material-tailwind/react";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useLoginAdminMutation } from "../../services/Auth";
-import { Spinner } from "../components/spinner";
+import { Spinner } from "../../common/components/spinner";
 import { useCookies } from 'react-cookie';
 
 
-  const SingIn:React.FC= () => {
+  const SingIn=() => {
     const [
         updatePost, 
         {  isLoading , isSuccess , data }, 
