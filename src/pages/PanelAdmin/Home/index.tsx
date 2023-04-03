@@ -1,4 +1,4 @@
-import { Button } from "@material-tailwind/react";
+import React from "react";
 
 const HomePanelAdmin = () => {
   return (
@@ -6,4 +6,4 @@ const HomePanelAdmin = () => {
   )
 }
 
-export default HomePanelAdmin
+export default React.memo(HomePanelAdmin)

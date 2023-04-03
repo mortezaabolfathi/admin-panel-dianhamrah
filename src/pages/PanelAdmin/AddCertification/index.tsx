@@ -5,4 +5,4 @@ const AddCertification = () => {
     <div>AddCertification</div>
   )
 }
-export default AddCertification
+export default React.memo(AddCertification);

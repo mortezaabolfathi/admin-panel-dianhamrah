@@ -1,5 +1,5 @@
 import AddUser from '../../../module/AddUser'
-
+import React from "react"
 const AddUserPage = () => {
   return (
     <div className='h-full flex justify-center items-center'>
@@ -8,4 +8,4 @@ const AddUserPage = () => {
   )
 }
 
-export default AddUserPage
+export default React.memo(AddUserPage);

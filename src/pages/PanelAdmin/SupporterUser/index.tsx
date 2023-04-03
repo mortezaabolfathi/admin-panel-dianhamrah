@@ -6,4 +6,4 @@ const SupporterUser = () => {
   )
 }
 
-export default SupporterUser
+export default React.memo(SupporterUser)

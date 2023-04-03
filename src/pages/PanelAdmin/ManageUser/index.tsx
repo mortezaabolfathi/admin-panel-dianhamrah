@@ -1,3 +1,4 @@
+import React from "react"
 import ManageUser from "../../../module/Users"
 
 const AllUser = () => {
@@ -8,4 +9,4 @@ const AllUser = () => {
   )
 }
 
-export default AllUser
+export default React.memo(AllUser)
