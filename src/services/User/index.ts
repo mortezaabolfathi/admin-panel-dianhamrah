@@ -1,36 +1,44 @@
-// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// export const apiSlice = createApi({
-//   reducerPath: 'apiSlice',
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: 'https://jsonplaceholder.typicode.com',
-//   }),
-//   tagTypes: ['Post'],
-//   endpoints: (builder) => ({
-//     getPosts: builder.query({
-//       query: () => '/posts',
-//     }),
-//   }),
-// })
-// export const { useGetPostsQuery } = apiSlice
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
-import { PostUser } from '../../constants/types';
 
-interface Post {
-  id: number;
-  userId: number;
-  title: string;
-  body: string;
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Api } from '../../Config';
+import { Cookies } from 'react-cookie';
+
+interface User {
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  password: string,
+  nationalCode:number
 }
 
-export const apiSlice:any = createApi({
-  reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' }),
+const baseQuery = fetchBaseQuery({
+  baseUrl: Api.base, prepareHeaders: (headers) => {
+    const cookie = new Cookies()
+    const token = cookie.get("token")
+    if (token) {
+      headers.set("authorization", `Bearer ${token}`)
+    }
+    return headers
+  }
+})
+
+export const userApi = createApi({
+  reducerPath: 'todoApi',
+  baseQuery: baseQuery,
   endpoints: (builder) => ({
-    getPosts: builder.query<Post[], void>({
-      query: () => 'posts',
+    getUser: builder.query<User, string>({
+      query: (name) => ({ url: `user` }),
+    }),
+    getUsers: builder.query<User[], string>({
+      query: (name) => ({ url: `user/list` }),
+    }),
+    addUser: builder.mutation<User, User>({
+      query: (body) => ({ url: `user/signUp` , body:body , method:"POST" }),
     }),
   }),
 });
 
-export const { useGetPostsQuery } = apiSlice;
+
+export const { useGetUsersQuery , useAddUserMutation } = userApi
+

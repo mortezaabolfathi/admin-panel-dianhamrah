@@ -8,7 +8,6 @@ import { useState } from "react";
 import { Avatar, Tooltip } from "@material-tailwind/react";
 import DeleteModal from "../../common/components/ModalDelete";
 import EditModal from "../../common/components/ModalEditUser";
-// import { useGetPostsQuery } from "../../services/User";
 
 
 
@@ -116,7 +115,6 @@ function ManageUser() {
   const ModalEdit = () => {
     setOpenEditModal(!openEditModal);
   };
-  // const { data: posts = [], isLoading, error } = useGetPostsQuery();
 
   
   return (

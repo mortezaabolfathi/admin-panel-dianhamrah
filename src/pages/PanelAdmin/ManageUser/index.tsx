@@ -1,4 +1,5 @@
-import ManageUser from "../../../module/Users"
+import React from "react";
+import ManageUser from "./../../../module/ManageUser"
 
 const AllUser = () => {
   return (

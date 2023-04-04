@@ -1,8 +1,10 @@
 import React from "react";
-
+import CoursesModule from "./../../../module/Courses"
 const Courses = () => {
   return (
-    <div>Courses</div>
+    <div>
+      <CoursesModule/>
+    </div>
   )
 }
 
