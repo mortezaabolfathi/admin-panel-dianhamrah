@@ -4,6 +4,8 @@ import { RxDashboard } from "react-icons/rx";
 import { btnItemPanel } from "./../../../dummy"
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import {toast } from 'react-toastify';
+
 export default function Example() {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
@@ -43,7 +45,7 @@ export default function Example() {
         </Typography>
         <div className=" h-3/4 w-full">{navList}</div>
         <Button variant="outlined" size="sm">
-          <span onClick={()=>{removeCookie('token'); window.location.reload()}}>خروج از پنل</span>
+          <span onClick={()=>{removeCookie('token'); window.location.reload(); toast("شما از پنل مدیریت خارج شدید") }}>خروج از پنل</span>
         </Button>
       </div>
     </Navbar>

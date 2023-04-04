@@ -12,9 +12,12 @@ import { useMemo } from "react";
 import { useLoginAdminMutation } from "../../services/Auth";
 import { Spinner } from "../../common/components/spinner";
 import { useCookies } from 'react-cookie';
+import {toast } from 'react-toastify';
 
 
   const SingIn=() => {
+    const notify = () => toast("شما به پنل مدیریت وارد شدید");
+
     const [
         updatePost, 
         {  isLoading , isSuccess , data }, 
@@ -33,6 +36,7 @@ import { useCookies } from 'react-cookie';
         if(cookies.token) return false
         if(isSuccess){
             setCookie("token" , data)
+            notify()
             return false
         } else {
             return true

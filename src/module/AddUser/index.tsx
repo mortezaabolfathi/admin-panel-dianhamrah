@@ -14,7 +14,7 @@ import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useAddUserMutation } from "../../services/User";
 import { Formik, Form, Field, validateYupSchema, useFormik } from "formik";
-import { log } from "console";
+import {toast } from 'react-toastify';
 
 interface MyFormValues {
   firstName: string,
@@ -32,6 +32,7 @@ const AddUser = () => {
 
   const handelAddUser = async  (values: any) => {
      await update(values);
+     toast("کاربر جدید به ثبت رسید")
   };
 
   return (

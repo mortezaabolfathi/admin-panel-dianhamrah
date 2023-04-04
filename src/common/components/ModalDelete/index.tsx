@@ -31,7 +31,7 @@ const DeleteModal:React.FC<DeleteBtn> = (props) => {
           >
             <span>خیر</span>
           </Button>
-          <Button variant="gradient" color="red" onClick={props.handleOpen}>
+          <Button variant="gradient" color="red" onClick={()=>props.handleOpen}>
             <span>بله</span>
           </Button>
         </DialogFooter>
