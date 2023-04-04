@@ -14,7 +14,7 @@ interface DeleteBtn {
   handleOpen:any
 }
 const DeleteModal:React.FC<DeleteBtn> = (props) => {
- 
+
   return (
     <Fragment>
       <Dialog open={props.open} handler={props.handleOpen}>

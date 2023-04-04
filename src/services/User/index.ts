@@ -11,6 +11,9 @@ interface User {
   password: string,
   nationalCode:number
 }
+interface DeleteUserResponse {
+  message: string;
+}
 
 const baseQuery = fetchBaseQuery({
   baseUrl: Api.base, prepareHeaders: (headers) => {
@@ -36,9 +39,16 @@ export const userApi = createApi({
     addUser: builder.mutation<User, User>({
       query: (body) => ({ url: `user/signUp` , body:body , method:"POST" }),
     }),
+    deleteUser: builder.mutation<DeleteUserResponse, User>({
+      query: (id) => ({
+        url: `/user/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+
   }),
 });
 
 
-export const { useGetUsersQuery , useAddUserMutation } = userApi
+export const { useGetUsersQuery , useAddUserMutation, useDeleteUserMutation } = userApi
 

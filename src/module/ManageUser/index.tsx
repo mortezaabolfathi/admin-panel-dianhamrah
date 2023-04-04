@@ -8,14 +8,16 @@ import { useState } from "react";
 import { Avatar, Tooltip } from "@material-tailwind/react";
 import DeleteModal from "../../common/components/ModalDelete";
 import EditModal from "../../common/components/ModalEditUser";
-import { useGetUsersQuery } from "../../services/User";
+import { useDeleteUserMutation, useGetUsersQuery } from "../../services/User";
 import { TableColumnBase } from "react-data-table-component/dist/src/DataTable/types";
 
 
 
 function ManageUser() {
 
+ 
   const {data:users} = useGetUsersQuery("" );
+  const [deleteUser] = useDeleteUserMutation()
   
   const columns:any = [
     {name:"نام ", selector: (rwo: any) =><span className="text-[16px]">{rwo.firstName}</span> , center: true },
@@ -41,6 +43,8 @@ function ManageUser() {
               className="cursor-pointer text-2xl  hover:text-blue-500"
               onClick={() => {
                 ModalDelete();
+                deleteUser(row.id)
+                // setUserDelete(row.id)
               }}
             >
               <MdOutlineDeleteForever/>
@@ -65,6 +69,8 @@ function ManageUser() {
   ]
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
+  // const [userDelete, setUserDelete] = useState<string>()
+
   const ModalDelete = () => {
     setOpenDeleteModal(!openDeleteModal);
   };
@@ -82,7 +88,7 @@ function ManageUser() {
         data={users ?? []  }
         pagination
       />
-      {openDeleteModal? <DeleteModal open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
+      {openDeleteModal? <DeleteModal  open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
       {openEditModal? <EditModal open={openEditModal} handleOpen={ModalEdit}/> : ("")}
     </div>
   );
