@@ -13,6 +13,10 @@ import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useAddUserMutation } from "../../services/User";
 
+
+
+
+
 const AddUser = () => {
   const [update, { data: userData, isLoading }] = useAddUserMutation();
 
@@ -43,6 +47,7 @@ const AddUser = () => {
       <CardBody className="w-full flex justify-center items-center">
         <Tabs className="overflow-visible ">
           <TabPanel value="card" className="p-0">
+    
             <form className=" flex flex-col gap-4" onSubmit={handelAddUser}>
               <div className="flex flex-col gap-2">
                 <Input label="نام کاربر جدید..." name="firstName" />
