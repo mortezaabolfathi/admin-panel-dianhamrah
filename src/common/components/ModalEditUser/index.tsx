@@ -13,6 +13,7 @@ import {
 import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useGetOneUserQuery, useUpdateUserMutation } from "../../../services/User";
+import { toast } from "react-toastify";
 
 interface EditModal {
   open: boolean;
@@ -27,13 +28,7 @@ const EditModal:React.FC<EditModal> = (props) => {
 
   const handleSumbit = async (e:any)=>{
     e.preventDefault()
-    console.log({
-      firstName:e.target.firstName.value,
-      lastName:e.target.lastName.value,
-      password:e.target.password.password,
-      phoneNumber:`${e.target.phoneNumber.value}`,
-      nationalCode:e.target.nationalCode
-    })
+    
     await updateUser({
       id:props.userId,
       body:{
@@ -45,6 +40,7 @@ const EditModal:React.FC<EditModal> = (props) => {
       }
     })
     props.refetch()
+    toast("کاربر ویرایش شد")
     props.handleOpen()
   }
   return (

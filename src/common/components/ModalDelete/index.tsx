@@ -7,6 +7,7 @@ import {
   DialogBody,
   DialogFooter,
 } from "@material-tailwind/react";
+import { toast } from "react-toastify";
  
 
 interface DeleteBtn {
@@ -37,6 +38,7 @@ const DeleteModal:React.FC<DeleteBtn> = (props) => {
           <Button variant="gradient" color="red" onClick={async(e)=>{
             await props.deleteUser(props.userId)
             props.refetch()
+            toast("کاربر حذف شد")
             props.handleOpen()
             }}>
             <span>بله</span>
