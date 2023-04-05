@@ -30,8 +30,8 @@ export const userApi = createApi({
   reducerPath: 'todoApi',
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    getUser: builder.query<User, string>({
-      query: (name) => ({ url: `user` }),
+    getOneUser: builder.query<User, number>({
+      query: (id) => ({ url: `user/${id}` }),
     }),
     getUsers: builder.query<User[], string>({
       query: (name) => ({ url: `user/list` }),
@@ -45,10 +45,16 @@ export const userApi = createApi({
         method: 'DELETE',
       }),
     }),
+    updateUser: builder.mutation<User, updateUserProps>({
+      query: ({id , body}) => ({ url: `user/update/${id}` , body:body , method:"PUT" }),
+    }),
 
   }),
 });
+interface updateUserProps {
+  id: number;
+  body : User
+}
 
-
-export const { useGetUsersQuery , useAddUserMutation, useDeleteUserMutation } = userApi
+export const { useGetUsersQuery , useAddUserMutation, useDeleteUserMutation , useGetOneUserQuery , useUpdateUserMutation } = userApi
 

@@ -11,7 +11,10 @@ import {
 
 interface DeleteBtn {
   open:boolean,
-  handleOpen:any
+  handleOpen:any,
+  deleteUser:any,
+  userId:number
+  refetch:any
 }
 const DeleteModal:React.FC<DeleteBtn> = (props) => {
 
@@ -31,7 +34,11 @@ const DeleteModal:React.FC<DeleteBtn> = (props) => {
           >
             <span>خیر</span>
           </Button>
-          <Button variant="gradient" color="red" onClick={props.handleOpen}>
+          <Button variant="gradient" color="red" onClick={async(e)=>{
+            await props.deleteUser(props.userId)
+            props.refetch()
+            props.handleOpen()
+            }}>
             <span>بله</span>
           </Button>
         </DialogFooter>

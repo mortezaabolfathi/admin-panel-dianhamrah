@@ -12,13 +12,41 @@ import {
 } from "@material-tailwind/react";
 import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { useGetOneUserQuery, useUpdateUserMutation } from "../../../services/User";
 
 interface EditModal {
   open: boolean;
   handleOpen: any;
+  userId:number
+  refetch:any
 }
 
 const EditModal:React.FC<EditModal> = (props) => {
+  const { data } = useGetOneUserQuery(props.userId)
+  const [updateUser] = useUpdateUserMutation()
+
+  const handleSumbit = async (e:any)=>{
+    e.preventDefault()
+    console.log({
+      firstName:e.target.firstName.value,
+      lastName:e.target.lastName.value,
+      password:e.target.password.password,
+      phoneNumber:`${e.target.phoneNumber.value}`,
+      nationalCode:e.target.nationalCode
+    })
+    await updateUser({
+      id:props.userId,
+      body:{
+        firstName:e.target.firstName.value,
+        lastName:e.target.lastName.value,
+        password:e.target.password.value,
+        phoneNumber:`${e.target.phoneNumber.value}`,
+        nationalCode:+e.target.nationalCode.value
+      }
+    })
+    props.refetch()
+    props.handleOpen()
+  }
   return (
     <Fragment>
       <Dialog open={props.open} handler={props.handleOpen}>
@@ -36,16 +64,16 @@ const EditModal:React.FC<EditModal> = (props) => {
           <CardBody className="w-full flex justify-center items-center">
             <Tabs className="overflow-visible ">
               <TabPanel value="card" className="p-0">
-                <form className=" flex flex-col gap-4">
+                <form className=" flex flex-col gap-4" onSubmit={handleSumbit}>
                   <div className="flex flex-col gap-2">
-                    <Input label="نام کاربر" />
-                    <Input label="نام‌خانوادگی کاربر" />
-                    <Input label="شماره ملی کاربر" type="number" />
+                    <Input label="نام کاربر" defaultValue={data?.firstName} name="firstName" />
+                    <Input label="نام‌خانوادگی کاربر" defaultValue={data?.lastName} name="lastName" />
+                    <Input label="شماره ملی کاربر" type="number" defaultValue={data?.nationalCode} name="nationalCode" />
                     <div className="my-4 flex items-center gap-4">
-                      <Input label="رمز عبور" type="password" />
+                      <Input label="رمز عبور" type="password" defaultValue={data?.password} name="password" />
                       <Input label="تکرار رمز عبور" type="password" />
                     </div>
-                    <Input label="شماره تماس" />
+                    <Input label="شماره تماس" defaultValue={data?.phoneNumber} name="phoneNumber" />
                     <Button variant="text" className="flex items-center gap-3">
                       <AiOutlineCloudUpload
                         strokeWidth={2}
@@ -55,7 +83,7 @@ const EditModal:React.FC<EditModal> = (props) => {
                     </Button>
                   </div>
                   <div className="flex justify-between">
-                    <Button size="lg" className="w-1/2"  onClick={props.handleOpen}>ثبت</Button>
+                    <Button size="lg" className="w-1/2" type="submit">ثبت</Button>
                     <Button size="lg" variant="text" onClick={props.handleOpen} className="w-1/4">لغو</Button>
                   </div>
                 </form>

@@ -16,8 +16,10 @@ import { TableColumnBase } from "react-data-table-component/dist/src/DataTable/t
 function ManageUser() {
 
  
-  const {data:users} = useGetUsersQuery("" );
+  const {data:users , refetch} = useGetUsersQuery("" );
   const [deleteUser] = useDeleteUserMutation()
+
+  
   
   const columns:any = [
     {name:"نام ", selector: (rwo: any) =><span className="text-[16px]">{rwo.firstName}</span> , center: true },
@@ -43,8 +45,7 @@ function ManageUser() {
               className="cursor-pointer text-2xl  hover:text-blue-500"
               onClick={() => {
                 ModalDelete();
-                deleteUser(row.id)
-                // setUserDelete(row.id)
+                setUserId(+row.id)
               }}
             >
               <MdOutlineDeleteForever/>
@@ -55,6 +56,7 @@ function ManageUser() {
               className="cursor-pointer text-2xl  hover:text-blue-500"
               onClick={() => {
                 ModalEdit();
+                setUserId(+row.id)
               }}
             >
               <MdEdit/>
@@ -69,7 +71,7 @@ function ManageUser() {
   ]
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
-  // const [userDelete, setUserDelete] = useState<string>()
+  const [userId, setUserId] = useState<number>(0)
 
   const ModalDelete = () => {
     setOpenDeleteModal(!openDeleteModal);
@@ -88,8 +90,8 @@ function ManageUser() {
         data={users ?? []  }
         pagination
       />
-      {openDeleteModal? <DeleteModal  open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
-      {openEditModal? <EditModal open={openEditModal} handleOpen={ModalEdit}/> : ("")}
+      {openDeleteModal? <DeleteModal deleteUser={deleteUser} refetch={refetch} userId={userId} open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
+      {openEditModal? <EditModal userId={userId} refetch={refetch} open={openEditModal} handleOpen={ModalEdit}/> : ("")}
     </div>
   );
 }
