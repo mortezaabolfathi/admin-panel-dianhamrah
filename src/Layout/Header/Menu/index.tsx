@@ -15,7 +15,7 @@ export default function Example() {
           variant="small"
           className="mr-4 cursor-pointer py-1.5 font-normal flex flex-row-reverse "
         >
-          <span>نام و نشان ادمین</span>
+          <span> مرتضی ابوالفتحی </span>
           <span className="text-xl px-1.5 opacity-70">
             <HiUserCircle />
           </span>
