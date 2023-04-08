@@ -18,19 +18,16 @@ import { toast } from "react-toastify";
 interface EditModal {
   open: boolean;
   handleOpen: any;
-  userId:number
   refetch:any
+  userSelect:any
 }
 
 const EditModal:React.FC<EditModal> = (props) => {
-  const { data } = useGetOneUserQuery(props.userId)
   const [updateUser] = useUpdateUserMutation()
-
   const handleSumbit = async (e:any)=>{
     e.preventDefault()
-    
     await updateUser({
-      id:props.userId,
+      id:props.userSelect.id,
       body:{
         firstName:e.target.firstName.value,
         lastName:e.target.lastName.value,
@@ -62,14 +59,14 @@ const EditModal:React.FC<EditModal> = (props) => {
               <TabPanel value="card" className="p-0">
                 <form className=" flex flex-col gap-4" onSubmit={handleSumbit}>
                   <div className="flex flex-col gap-2">
-                    <Input label="نام کاربر" defaultValue={data?.firstName} name="firstName" />
-                    <Input label="نام‌خانوادگی کاربر" defaultValue={data?.lastName} name="lastName" />
-                    <Input label="شماره ملی کاربر" type="number" defaultValue={data?.nationalCode} name="nationalCode" />
+                    <Input label="نام کاربر" defaultValue={props.userSelect?.firstName} name="firstName" />
+                    <Input label="نام‌خانوادگی کاربر" defaultValue={props.userSelect?.lastName} name="lastName" />
+                    <Input label="شماره ملی کاربر" type="number" defaultValue={props.userSelect?.nationalCode} name="nationalCode" />
                     <div className="my-4 flex items-center gap-4">
-                      <Input label="رمز عبور" type="password" defaultValue={data?.password} name="password" />
+                      <Input label="رمز عبور" type="password" defaultValue={props.userSelect?.password} name="password" />
                       <Input label="تکرار رمز عبور" type="password" />
                     </div>
-                    <Input label="شماره تماس" defaultValue={data?.phoneNumber} name="phoneNumber" />
+                    <Input label="شماره تماس" defaultValue={props.userSelect?.phoneNumber} name="phoneNumber" />
                     <Button variant="text" className="flex items-center gap-3">
                       <AiOutlineCloudUpload
                         strokeWidth={2}

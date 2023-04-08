@@ -45,7 +45,7 @@ function ManageUser() {
               className="cursor-pointer text-2xl  hover:text-blue-500"
               onClick={() => {
                 ModalDelete();
-                setUserId(+row.id)
+                setUserSelect(row)
               }}
             >
               <MdOutlineDeleteForever/>
@@ -56,7 +56,7 @@ function ManageUser() {
               className="cursor-pointer text-2xl  hover:text-blue-500"
               onClick={() => {
                 ModalEdit();
-                setUserId(+row.id)
+                setUserSelect(row)
               }}
             >
               <MdEdit/>
@@ -71,7 +71,8 @@ function ManageUser() {
   ]
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number>(0)
+  const [userSelect, setUserSelect]= useState()
+ 
 
   const ModalDelete = () => {
     setOpenDeleteModal(!openDeleteModal);
@@ -90,8 +91,8 @@ function ManageUser() {
         data={users ?? []  }
         pagination
       />
-      {openDeleteModal? <DeleteModal deleteUser={deleteUser} refetch={refetch} userId={userId} open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
-      {openEditModal? <EditModal userId={userId} refetch={refetch} open={openEditModal} handleOpen={ModalEdit}/> : ("")}
+      {openDeleteModal? <DeleteModal deleteUser={deleteUser} refetch={refetch} userSelect={userSelect}open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
+      {openEditModal? <EditModal userSelect={userSelect}  refetch={refetch} open={openEditModal} handleOpen={ModalEdit}/> : ("")}
     </div>
   );
 }

@@ -14,11 +14,11 @@ interface DeleteBtn {
   open:boolean,
   handleOpen:any,
   deleteUser:any,
-  userSelect:any
+  userId:number
   refetch:any
 }
 const DeleteModal:React.FC<DeleteBtn> = (props) => {
-  const userSelectId = props.userSelect.id
+
   return (
     <Fragment>
       <Dialog open={props.open} handler={props.handleOpen}>
@@ -36,7 +36,7 @@ const DeleteModal:React.FC<DeleteBtn> = (props) => {
             <span>خیر</span>
           </Button>
           <Button variant="gradient" color="red" onClick={async(e)=>{
-            await props.deleteUser(userSelectId)
+            await props.deleteUser(props.userId)
             props.refetch()
             toast("کاربر حذف شد")
             props.handleOpen()
