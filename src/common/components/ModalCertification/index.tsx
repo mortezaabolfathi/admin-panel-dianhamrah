@@ -6,42 +6,43 @@ import {
   DialogHeader,
   DialogBody,
   DialogFooter,
+  Radio
 } from "@material-tailwind/react";
 import { toast } from "react-toastify";
- 
+
 
 interface DeleteBtn {
-  open:boolean,
-  handleOpen:any,
-  deleteUser:any,
-  userId:number
-  refetch:any
+  handleOpen: any;
+  open: boolean
 }
-const DeleteModal:React.FC<DeleteBtn> = (props) => {
+const DeleteModal: React.FC<DeleteBtn> = (props) => {
 
   return (
     <Fragment>
       <Dialog open={props.open} handler={props.handleOpen}>
-        <DialogHeader>حذف کاربر</DialogHeader>
+        <DialogHeader>بارگذاری گواهی‌نامه کاربر</DialogHeader>
         <DialogBody divider>
-            آیا از حذف کاربر با نام و نشان فلان مطمئن هستید؟
+          نوع گواهی را برای بارگذاری انتخاب کنید
         </DialogBody>
+        <div className="flex gap-10 justify-center h-16">
+          <Radio
+            id="ripple-on"
+            name="type"
+            label="نام گواهی اصلی"
+            ripple={true}
+          />
+          <Radio
+            id="ripple-off"
+            name="type"
+            label=" سایر گواهی ها "
+            ripple={false}
+          />
+        </div>
         <DialogFooter>
-          <Button
-            variant="text"
-            color="blue"
-            onClick={props.handleOpen}
-            className="ml-1"
-          >
-            <span>خیر</span>
-          </Button>
-          <Button variant="gradient" color="red" onClick={async(e)=>{
-            await props.deleteUser(props.userId)
-            props.refetch()
-            toast("کاربر حذف شد")
+          <Button variant="gradient" color="blue" onClick={() => {
             props.handleOpen()
-            }}>
-            <span>بله</span>
+          }}>
+            <span>تایید </span>
           </Button>
         </DialogFooter>
       </Dialog>

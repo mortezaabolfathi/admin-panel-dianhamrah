@@ -9,8 +9,7 @@ import { Avatar, Tooltip } from "@material-tailwind/react";
 import DeleteModal from "../../common/components/ModalDelete";
 import EditModal from "../../common/components/ModalEditUser";
 import { useDeleteUserMutation, useGetUsersQuery } from "../../services/User";
-import { TableColumnBase } from "react-data-table-component/dist/src/DataTable/types";
-
+import CertificationModal from "../../common/components/ModalCertification";
 
 
 function ManageUser() {
@@ -33,8 +32,8 @@ function ManageUser() {
           <Tooltip content="گواهی نامه">
             <div
               className="cursor-pointer text-2xl  hover:text-blue-500"
-              onClick={(e) => {
-                console.log("certificatied");
+              onClick={() => {
+                ModalCertification();
               }}
             >
               <TbCertificate/>
@@ -69,17 +68,28 @@ function ManageUser() {
     },
  
   ]
+  //state Modal 
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
-  const [userSelect, setUserSelect]= useState()
- 
+  const [openModalCertification, setOpenModalCertification] = useState<boolean>(false);
 
+  //manage open and close Modal
   const ModalDelete = () => {
     setOpenDeleteModal(!openDeleteModal);
   };
   const ModalEdit = () => {
     setOpenEditModal(!openEditModal);
   };
+
+  const ModalCertification = () =>{
+    setOpenModalCertification(!openModalCertification)
+  }
+
+
+  //state select User
+  const [userSelect, setUserSelect]= useState()
+ 
+  
 
   
   return (
@@ -93,6 +103,7 @@ function ManageUser() {
       />
       {openDeleteModal? <DeleteModal deleteUser={deleteUser} refetch={refetch} userSelect={userSelect}open={openDeleteModal} handleOpen={ModalDelete}/> : ("")}
       {openEditModal? <EditModal userSelect={userSelect}  refetch={refetch} open={openEditModal} handleOpen={ModalEdit}/> : ("")}
+      {openModalCertification? <CertificationModal handleOpen={ModalCertification} open={openModalCertification}/> : ("")}
     </div>
   );
 }
