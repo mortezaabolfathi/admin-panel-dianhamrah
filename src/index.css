@@ -8,6 +8,12 @@
     url("./assets/fonts/Iranian\ Sans.ttf");
 }
 
+@layer utilities {
+  .ltr {
+    direction: ltr;
+  }
+}
+
 body {
   margin: 0;
     font-family: IranSans;

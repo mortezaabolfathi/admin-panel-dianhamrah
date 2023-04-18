@@ -2,7 +2,7 @@ import React from "react";
 import CoursesModule from "./../../../module/Courses"
 const Courses = () => {
   return (
-    <div>
+    <div className="h-full flex justify-center items-center">
       <CoursesModule/>
     </div>
   )

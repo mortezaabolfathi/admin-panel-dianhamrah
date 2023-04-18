@@ -22,9 +22,9 @@ const DeleteModal:React.FC<DeleteBtn> = (props) => {
   return (
     <Fragment>
       <Dialog open={props.open} handler={props.handleOpen}>
-        <DialogHeader>حذف کاربر</DialogHeader>
+        <DialogHeader className="text-red-400 flex justify-center w-full">حذف </DialogHeader>
         <DialogBody divider>
-            آیا از حذف کاربر با نام و نشان فلان مطمئن هستید؟
+            آیا از حذف مطمئن هستید؟
         </DialogBody>
         <DialogFooter>
           <Button
@@ -38,7 +38,7 @@ const DeleteModal:React.FC<DeleteBtn> = (props) => {
           <Button variant="gradient" color="red" onClick={async(e)=>{
             await props.deleteUser(userSelectId)
             props.refetch()
-            toast("کاربر حذف شد")
+            toast("حذف شد")
             props.handleOpen()
             }}>
             <span>بله</span>

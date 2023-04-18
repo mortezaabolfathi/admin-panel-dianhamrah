@@ -9,3 +9,15 @@ export type PostUser = {
     title: string;
     body: string;
 }
+
+export type Term = {
+    id:number,
+    title : string,
+    date: any,
+    termDate : number
+}
+
+export type CreateCertificate = {
+    id:number,
+    termId: number
+}
