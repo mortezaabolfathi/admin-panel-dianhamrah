@@ -1,5 +1,6 @@
 // import SignIn from "../pages/SingIn";
-import Adduser from "../pages/PanelAdmin/AddUser";
+
+import AddUser from "../pages/PanelAdmin/Adduser";
 import ManageUser from "../pages/PanelAdmin/ManageUser";
 import AddCertification from "../pages/PanelAdmin/AddCertification";
 import SupporterUser from "../pages/PanelAdmin/SupporterUser";
@@ -13,7 +14,7 @@ import Courses from "../pages/PanelAdmin/Courses";
 
 export const panelRoute = [
   { path: "/DashboardHome", element: <HomePanelAdmin /> },
-  { path: "/addUser", element: <Adduser /> },
+  { path: "/addUser", element: <AddUser /> },
   { path: "/manageUser", element: <ManageUser /> },
   { path: "/addCertification", element: <AddCertification /> },
   { path: "/supporterUser", element: <SupporterUser /> },
